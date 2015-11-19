@@ -16,7 +16,8 @@
 package com.common.client;
 
 import com.common.utils.Byte2ObjectUtils;
-import com.common.utils.Object2ByteBuffUtils;
+import com.common.utils.ByteBuff2JSON;
+import com.common.utils.JsonStr2ByteBuffUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -36,8 +37,8 @@ public class WrappedClientHandler extends ChannelInboundHandlerAdapter {
     /**
      * Creates a client-side handler.
      */
-    public WrappedClientHandler(Object data) {
-        this.data = Object2ByteBuffUtils.transform(data);
+    public WrappedClientHandler(String data) {
+        this.data = JsonStr2ByteBuffUtils.transform(data);
         log.info("client has init data");
     }
 
@@ -51,12 +52,8 @@ public class WrappedClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf byteBuf = (ByteBuf)msg;
-        int len = byteBuf.readableBytes();
-        byte[] bytes = new byte[len];
-        for(int i=0;i<len;i++) {
-            bytes[i] = byteBuf.getByte(i);
-        }
-        System.out.println(Byte2ObjectUtils.transform(bytes));
+        String json = ByteBuff2JSON.transform(byteBuf);
+        System.out.println(json);
         System.out.println("server返回了数据");
     }
 

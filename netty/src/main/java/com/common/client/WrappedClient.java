@@ -67,7 +67,7 @@ public class WrappedClient {
 
     // 发送数据
     // 发送的数据是一个Object
-    public void send(final Object data) throws InterruptedException {
+    public void send(final String data) throws InterruptedException {
         EventLoopGroup group = new NioEventLoopGroup();
         try {
             Bootstrap b = new Bootstrap();
@@ -99,15 +99,11 @@ public class WrappedClient {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        List<String> list = new ArrayList<String>();
-        list.add("sjhdbsjdbj");
-        list.add("sjhdbsjdbj");
-        list.add("sjhdbsjdbj");
-        list.add("sjhdbsjdbj");
-        list.add("sjhdbsjdbj");
+        String json = "{\"name\":\"sjdgsh\",\"age\":\"ahbj\"}";
+        System.out.println(json);
 
         WrappedClient wrappedClient = WrappedClient.getInstance("127.0.0.1", 10000);
-        wrappedClient.send(list);
+        wrappedClient.send(json);
     }
 
 }

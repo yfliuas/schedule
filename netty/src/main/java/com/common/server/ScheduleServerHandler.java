@@ -16,6 +16,7 @@
 package com.common.server;
 
 import com.common.utils.Byte2ObjectUtils;
+import com.common.utils.ByteBuff2JSON;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
@@ -40,12 +41,8 @@ public class ScheduleServerHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ctx.write(msg);
         ByteBuf byteBuf = (ByteBuf)msg;
-        int len = byteBuf.readableBytes();
-        byte[] bytes = new byte[len];
-        for(int i=0;i<len;i++) {
-            bytes[i] = byteBuf.getByte(i);
-        }
-        System.out.println(Byte2ObjectUtils.transform(bytes));
+        String json = ByteBuff2JSON.transform(byteBuf);
+        System.out.println(json);
         System.out.println("channelRead");
     }
 
