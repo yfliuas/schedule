@@ -6,8 +6,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/common/server/ScheduleServer.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/common/server/ScheduleServerHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/common/time/StudyCrontab.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/common/time/Timer.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/common/utils/ScanPortUtils.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/netty/server/ScheduleServer.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/netty/server/ScheduleServerHandler.java" charset="UTF-8" />
   </component>
 </project>
