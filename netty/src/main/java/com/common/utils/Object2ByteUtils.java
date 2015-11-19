@@ -13,7 +13,7 @@ import java.util.List;
 public class Object2ByteUtils {
 
     /**
-     * °Ñ¶ÔÏó×ª³É×Ö½ÚÊı×é
+     * æŠŠå¯¹è±¡è½¬æˆå­—èŠ‚æ•°ç»„
      * @param object
      * @return
      */
